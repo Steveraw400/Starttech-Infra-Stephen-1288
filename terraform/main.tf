@@ -30,11 +30,18 @@ module "compute" {
   private_subnet_ids  = module.networking.private_subnet_ids
 }
 
+# Get AWS Account ID
+data "aws_caller_identity" "current" {}
+
 module "storage" {
   source = "./modules/storage"
-  project_name  = var.project_name
-}
+  project_name   = var.project_name
+  environment    = var.environment
+  aws_account_id = data.aws_caller_identity.current.account_id
 
+  enable_versioning      = true
+  cloudfront_price_class = "PriceClass_100"  # US, Canada, Europe only
+}
 module "monitoring" {
   source       = "./modules/monitoring"
   project_name = var.project_name

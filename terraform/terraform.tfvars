@@ -12,8 +12,6 @@ private_subnet_cidrs = [
   "10.0.102.0/24"
 ]
 
-azs = [
-  "us-east-1a",
-  "us-east-1b"
-]
+aws_region = "eu-west-2"
+azs = ["eu-west-2a", "eu-west-2b"]
 
