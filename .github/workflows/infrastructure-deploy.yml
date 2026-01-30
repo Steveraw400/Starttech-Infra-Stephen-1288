@@ -37,5 +37,8 @@ jobs:
         run: |
           cd terraform
           terraform plan
-
       
+      - name: Terraform Plan
+        working-directory: terraform
+        run: terraform plan -var-file=terraform.tfvars
+        
