@@ -15,3 +15,4 @@ private_subnet_cidrs = [
 aws_region = "eu-west-2"
 azs = ["eu-west-2a", "eu-west-2b"]
 
+environment = "dev"
